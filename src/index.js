@@ -26,8 +26,9 @@ app.use(cookieParser());
 );*/
 
 app.use(cors({
-  origin: "*", // later you can restrict to frontend domain
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: "https://reactjs-n4z1lvt9g-mercys-projects-f7f4a381.vercel.app/", // later you can restrict to frontend domain
+  credentials: true,
+  //methods: ["GET", "POST", "PUT", "DELETE"],
 }));
 
 app.use("/api/auth", authRoutes);
