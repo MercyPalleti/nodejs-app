@@ -25,11 +25,26 @@ app.use(cookieParser());
   })
 );*/
 
-app.use(cors({
+/*app.use(cors({
   origin: "https://reactjs-6wnvmy6f8-mercys-projects-f7f4a381.vercel.app", // later you can restrict to frontend domain
   credentials:true,
   //methods: ["GET", "POST", "PUT", "DELETE"],
+}));*/
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (
+      !origin ||
+      origin.endsWith(".vercel.app")
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 }));
+
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
