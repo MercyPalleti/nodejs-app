@@ -40,4 +40,5 @@ jobs:
           --name nodejs-app-container \
           -e PORT=5001 \
           -e MONGODB_URI="${{ secrets.MONGODB_URI }}" \
+          -e JWT_SECRET="${{JWT_SECRET}}" \
           mercypalleti/nodejs-app:latest  
