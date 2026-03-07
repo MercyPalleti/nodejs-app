@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://reactjs-app-eight.vercel.app"],
+    origin: ["http://localhost:5173", "https://chatapp.cmbedenchurch.in","https://reactjs-app-eight.vercel.app"],
     credentials: true,
     methods: ["GET", "POST"],
   })
