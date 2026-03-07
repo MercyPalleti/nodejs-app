@@ -41,4 +41,7 @@ jobs:
           -e PORT=5001 \
           -e MONGODB_URI="${{ secrets.MONGODB_URI }}" \
           -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
+          -e CLOUDINARY_CLOUD_NAME="${{ secrets.CLOUDINARY_CLOUD_NAME }}" \
+          -e CLOUDINARY_API_KEY="${{ secrets.CLOUDINARY_API_KEY }}" \
+          -e CLOUDINARY_API_SECRET="${{ secrets.CLOUDINARY_API_SECRET }}" \
           mercypalleti/nodejs-app:latest  
