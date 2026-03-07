@@ -5,13 +5,13 @@ import express from "express";
 const app = express();
 const server = http.createServer(app);
 
-/*const io = new Server(server, {
+const io = new Server(server, {
   cors: {
     origin: ["http://localhost:5173"],
   },
-});*/
+});
 
-const io = new Server(server, {
+/*const io = new Server(server, {
   cors: {
     origin: (origin, callback) => {
       if (!origin || origin.endsWith(".vercel.app")) {
@@ -22,7 +22,7 @@ const io = new Server(server, {
     },
     credentials: true,
   },
-});
+});*/
 
 
 export function getReceiverSocketId(userId) {

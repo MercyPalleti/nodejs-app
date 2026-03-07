@@ -18,33 +18,13 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cookieParser());
-/*app.use(
+app.use(
   cors({
     origin: "http://localhost:5173",
     credentials: true,
+    methods: ["GET", "POST"],
   })
-);*/
-
-/*app.use(cors({
-  origin: "https://reactjs-6wnvmy6f8-mercys-projects-f7f4a381.vercel.app", // later you can restrict to frontend domain
-  credentials:true,
-  //methods: ["GET", "POST", "PUT", "DELETE"],
-}));*/
-
-app.use(cors({
-  origin: (origin, callback) => {
-    if (
-      !origin ||
-      origin.endsWith(".vercel.app")
-    ) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-}));
-
+);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
@@ -57,8 +37,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-server.listen(PORT, "0.0.0.0",() => {
+server.listen(PORT, () => {
   console.log("server is running on PORT:" + PORT);
   connectDB();
 });
-
